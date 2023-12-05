@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="title">
         <h1>GROUPIE TRACKER</h1>
+        <p>RESULTS</p>
     </div>
-    <div class="artists">
-        {{range .Art_ists}}
-        <div class="infs">
-            <a href="/artistsinfos?id={{.ID}}"><img src={{.Image}}></a>
-            <p>{{.Name}}</p>
+    <div class="containall">
+        <div class="results">
+            {{range .Art_ists}}
+            <div class="infs">
+                <a href="/artistsinfos?id={{.ID}}"><img src={{.Image}}></a>
+                <p>{{.Name}}</p>
+            </div>
+            {{end}}
         </div>
-        {{end}}
+        <a href="/" class="searchlink">
+            <p>Go Back Home</p>
+        </a>
     </div>
-    
 </div>
 </body>
 </html>

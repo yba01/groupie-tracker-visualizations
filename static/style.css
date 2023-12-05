@@ -14,7 +14,7 @@ body {
     display: block;
 }
 
-.all {
+.all{
     max-width: 100%;
     padding: 20px;
     height: auto;
@@ -26,6 +26,28 @@ body {
     gap: 30px;
 }
 
+.containall {
+    max-width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+.results{
+    max-width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
 .artists {
     display: flex;
     flex-direction: row;
@@ -57,4 +79,16 @@ img {
 input[type="text"]:focus {
     border: none;
     outline: none;
+}
+
+.searchlink {
+    text-decoration: none;
+    border: 2px solid gray;
+    background-color: black;
+    border-radius: 12px;
+    padding: 12px;
+    color: aliceblue;
+}
+.searchlink:hover {
+    background-color: gray;
 }

@@ -2,7 +2,6 @@ package Handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	"groupie/Tools/models"
 	"groupie/Tools/utils"
 	"net/http"
@@ -97,8 +96,6 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 
 func Search(rw http.ResponseWriter, r *http.Request) {
 	searching := r.FormValue("thesearch")
-	fmt.Println(searching)
-
 	var artist []models.Artists
 
 	var locations models.Locationss
@@ -133,7 +130,6 @@ func Search(rw http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	fmt.Println(locations)
 	Allstruct := models.Complete1{Art_ists: artist, Loca_tions: locations}
 
 	models.Tm.ExecuteTemplate(rw, "search.html", Allstruct)
