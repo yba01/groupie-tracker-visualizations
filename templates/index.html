@@ -12,24 +12,24 @@
     <div class="title">
         <h1>GROUPIE TRACKER</h1>
         <form action="/search" method="post">
-            <input type="text" list="searching">
+            <input type="text" list="searching" name="thesearch">
             <datalist id="searching">
                 {{range .Art_ists}}
-                <option value="{{.Name}}" name="ID">{{.Name}} - artist/band</option>
+                <option value="{{.Name}}">{{.Name}} - artist/band</option>
                 {{end}}
                 {{range .Loca_tions.Index}}
                 {{range .Locations}}
-                <option value="{{.}}" name="ID">{{.}} - locations</option>
+                <option value="{{.}}">{{.}} - locations</option>
                 {{end}}
                 {{end}}
                 {{range .Art_ists}}
-                <option value="{{.FirstAlbum}}" name="ID">{{.FirstAlbum}} - first album date</option>
+                <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - first album date</option>
                 {{end}}
                 {{range .Art_ists}}
-                <option value="{{.CreationDate}}" name="ID">{{.CreationDate}} - creation date</option>
+                <option value="{{.CreationDate}}">{{.CreationDate}} - creation date</option>
                 {{end}}
                 {{range .Art_ists}}
-                <option value="{{.Members}}" name="ID">{{.Members}} - members</option>
+                <option value="{{.Members}}">{{.Members}} - members</option>
                 {{end}}
             </datalist>
             <input type="submit" value="Search">
