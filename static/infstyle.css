@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background: url(https://img.freepik.com/premium-vector/dark-background-with-repetitive-circle-pattern_3442-2002.jpg);
+    background-size: contain;
+    color: aliceblue;
+    font-family: system-ui;
+}
+
+.all {
+    padding: 12px;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.allinf {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.datesanlocations {
+    gap : 12px
+}
+
+a {
+    text-decoration: none;
+    border: 2px solid gray;
+    background-color: black;
+    border-radius: 12px;
+    padding: 12px;
+    color: aliceblue;
+}
+a:hover {
+    background-color: gray;
+}
+
+img {
+    border-radius: 12px;
+}

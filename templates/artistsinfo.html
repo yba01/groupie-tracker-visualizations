@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/infstyle.css">
+    <title>InfoArtist</title>
+</head>
+
+<body>
+    <div class="all">
+        <div class="name">
+            <p>{{.Art.Name}}</p>
+            <img src={{.Art.Image}}>
+        </div>
+        <div class="allinf">
+            <div class="members">
+                <b>MEMBERS:</b>
+                {{range .Art.Members}}
+                <p>{{.}}</p>
+                {{end}}
+            </div>
+            <div class="date">
+                <b>CREATION DATE:</b>
+                <p>{{.Art.CreationDate}}</p>
+            </div>
+            <div class="album">
+                <b>First Album:</b>
+                <p>{{.Art.FirstAlbum}}</p>
+            </div>
+            <div class="concerts">
+                <b>CONCERT DATES AND LOCATIONS</b>
+                <div class="datesanlocations">
+                    {{range $key, $value := .Rel.DatesLocations}}
+                    <b>{{$key}}: </b>
+                    {{range $value}}
+                    <p>{{.}}</p>
+                    {{end}}
+                    {{end}}
+                </div>
+            </div>
+
+        </div>
+        <a href="/">
+            <p>Go Back Home</p>
+        </a>
+    </div>
+
+
+</body>
+
+</html>
