@@ -94,19 +94,19 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 	models.Tm.ExecuteTemplate(rw, "artistsinfo.html", Allstruct)
 }
 
+
+
 func Search(rw http.ResponseWriter, r *http.Request) {
 	searching := r.FormValue("thesearch")
 	var artist []models.Artists
 
-	var locations models.Locationss
-
 	for _, char := range models.Theartists {
-		if char.Name == searching || strconv.Itoa(char.CreationDate) == searching || char.FirstAlbum == searching {
+		if (char.Name == searching || strconv.Itoa(char.CreationDate) == searching || char.FirstAlbum == searching) && !utils.Duplicates(artist, char) {
 			artist = append(artist, char)
 			continue
 		}
 		for _, char1 := range char.Members {
-			if char1 == searching {
+			if char1 == searching && !utils.Duplicates(artist, char) {
 				artist = append(artist, char)
 				continue
 			}
@@ -116,7 +116,7 @@ func Search(rw http.ResponseWriter, r *http.Request) {
 	IDS := []int{}
 	for _, char := range models.Thelocations.Index {
 		for _, char1 := range char.Locations {
-			if char1 == searching {
+			if char1 == searching  {
 				IDS = append(IDS, char.Id)
 			}
 		}
@@ -124,13 +124,12 @@ func Search(rw http.ResponseWriter, r *http.Request) {
 
 	for _, char := range models.Theartists {
 		for _, char1 := range IDS {
-			if char.ID == char1 {
+			if char.ID == char1 && !utils.Duplicates(artist, char) {
 				artist = append(artist, char)
 				continue
 			}
 		}
 	}
-	Allstruct := models.Complete1{Art_ists: artist, Loca_tions: locations}
 
-	models.Tm.ExecuteTemplate(rw, "search.html", Allstruct)
+	models.Tm.ExecuteTemplate(rw, "search.html", artist)
 }
