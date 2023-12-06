@@ -25,7 +25,17 @@ func Home(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Allstructs := models.Complete1{Art_ists: models.Theartists, Loca_tions: models.Thelocations}
+	var THElocations []string
+
+	for _, char := range models.Thelocations.Index {
+		for _, char1 := range char.Locations {
+			if !utils.DuplicatesV2(THElocations, char1) {
+					THElocations = append(THElocations, char1)
+			}
+		}
+	}
+
+	Allstructs := models.Complete2{Art_ists: models.Theartists, Loca_tions: THElocations}
 
 	models.Tm.ExecuteTemplate(rw, "index.html", Allstructs)
 }

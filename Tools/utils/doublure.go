@@ -10,3 +10,13 @@ func Duplicates(table []models.Artists, data models.Artists) bool {
 	}
 	return false
 }
+
+func DuplicatesV2(tab []string, s string) bool {
+	for _, char1 := range tab {
+		if char1 == s {
+			return true
+		}
+	}
+
+	return false
+}

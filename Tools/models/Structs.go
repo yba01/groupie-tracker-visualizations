@@ -29,3 +29,8 @@ type Complete1 struct {
 	Art_ists   []Artists
 	Loca_tions Locationss
 }
+
+type Complete2 struct {
+	Art_ists   []Artists
+	Loca_tions []string
+}
