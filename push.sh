@@ -8,5 +8,5 @@ do
     git push
     
     # Sleep for 20 minutes (1200 seconds)
-    sleep 60
+    sleep 1200
 done
