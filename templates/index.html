@@ -9,44 +9,46 @@
 </head>
 
 <body>
-    <div class="title">
-        <h1>GROUPIE TRACKER</h1>
-        <form action="/search" method="post">
-            <input type="text" list="searching" name="thesearch">
-            <datalist id="searching">
+    <div class="everything">
+        <div class="title">
+            <h1>GROUPIE TRACKER</h1>
+            <form action="/search" method="post">
+                <input type="text" list="searching" name="thesearch">
+                <datalist id="searching">
+                    {{range .Art_ists}}
+                    <option value="{{.Name}}">{{.Name}} - artist/band</option>
+                    {{end}}
+                    {{range .Loca_tions}}
+                    <option value="{{.}}">{{.}} - locations</option>
+                    {{end}}
+                    {{range .Art_ists}}
+                    <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - first album date</option>
+                    {{end}}
+                    {{range .Art_ists}}
+                    <option value="{{.CreationDate}}">{{.CreationDate}} - creation date</option>
+                    {{end}}
+                    {{range .Art_ists}}
+                    {{range .Members}}
+                    <option value="{{.}}">{{.}} - members</option>
+                    {{end}}
+                    {{end}}
+                </datalist>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        <div class="all">
+            <div class="artists">
                 {{range .Art_ists}}
-                <option value="{{.Name}}">{{.Name}} - artist/band</option>
-                {{end}}
-                {{range .Loca_tions}}
-                <option value="{{.}}">{{.}} - locations</option>
-                {{end}}
-                {{range .Art_ists}}
-                <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - first album date</option>
-                {{end}}
-                {{range .Art_ists}}
-                <option value="{{.CreationDate}}">{{.CreationDate}} - creation date</option>
-                {{end}}
-                {{range .Art_ists}}
-                {{range .Members}}
-                <option value="{{.}}">{{.}} - members</option>
-                {{end}}
-                {{end}}
-            </datalist>
-            <input type="submit" value="Search">
-        </form>
-    </div>
-    <div class="all">
-        <div class="artists">
-            {{range .Art_ists}}
-            <div class="infs">
-                <div class="infs2">
-                    <a href="/artistsinfos?id={{.ID}}">
-                        <img src={{.Image}}>
-                        <p>{{.Name}}</p>
-                    </a>
+                <div class="infs">
+                    <div class="infs2">
+                        <a href="/artistsinfos?id={{.ID}}">
+                            <img src={{.Image}}>
+                            <p>{{.Name}}</p>
+                        </a>
+                    </div>
                 </div>
+                {{end}}
             </div>
-            {{end}}
         </div>
     </div>
 </body>
