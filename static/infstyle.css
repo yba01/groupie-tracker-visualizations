@@ -2,54 +2,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-}
-
-body {
-    background: url(https://img.freepik.com/premium-vector/dark-background-with-repetitive-circle-pattern_3442-2002.jpg);
-    background-size: contain;
     color: aliceblue;
-    font-family: system-ui;
-}
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(31, 30, 30);
+  }
 
-.all {
+  .all {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+  }
+
+  .allinf {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  a {
     padding: 12px;
-    max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-.allinf {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
-}
-
-.datesanlocations {
-    gap : 12px
-}
-
-a {
     text-decoration: none;
-    border: 2px solid gray;
-    background-color: black;
-    border-radius: 12px;
-    padding: 12px;
-    color: aliceblue;
-}
-a:hover {
-    background-color: gray;
-}
+    text-align: left;
+  }
 
-img {
-    border-radius: 12px;
-}
+  button {
+    
+    background: none;
+    border: none;
+    font-size: 20px;
+    
+  }

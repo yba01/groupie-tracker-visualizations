@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Groupie</title>
 </head>
 
 <body>
     <div class="everything">
-        <div class="title">
+        <div class="title" id="up">
             <h1>GROUPIE TRACKER</h1>
             <form action="/search" method="post">
-                <input type="text" list="searching" name="thesearch">
+                <input type="text" list="searching" name="thesearch" placeholder="Search someone">
                 <datalist id="searching">
                     {{range .Art_ists}}
                     <option value="{{.Name}}">{{.Name}} - artist/band</option>
@@ -33,25 +34,25 @@
                     {{end}}
                     {{end}}
                 </datalist>
-                <input type="submit" value="Search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="all">
             <div class="artists">
-                    {{range .Art_ists}}
-                    <div class="myCard">
-                        <div class="innerCard">
-                            <div class="frontSide">
-                                <img src={{.Image}}>
-                            </div>
-                            <div class="backSide">
-                                <p>{{.Name}}</p>
-                            </div>
-                        </div>
-                    </div>
+                {{range .Art_ists}}
+                <div class="content">
+                    <p>{{.Name}}</p>
+                    <img src={{.Image}}>
+                    <h4>Creation Date :</h4>
+                    <p>{{.CreationDate}}</p>
+                    <a href="/artistsinfos?id={{.ID}}" class="aa">
+                        <p>See more >></p>
+                    </a>
+                </div>
                 {{end}}
             </div>
         </div>
+        <button id="backup"><a href="#up"><i class="fa-solid fa-arrow-up"></i>Go UP</a></button>
     </div>
 </body>
 

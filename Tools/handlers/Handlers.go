@@ -6,6 +6,7 @@ import (
 	"groupie/Tools/utils"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 func Home(rw http.ResponseWriter, r *http.Request) {
@@ -109,14 +110,15 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 func Search(rw http.ResponseWriter, r *http.Request) {
 	searching := r.FormValue("thesearch")
 	var artist []models.Artists
+	searching = strings.ToLower(searching)
 
 	for _, char := range models.Theartists {
-		if (char.Name == searching || strconv.Itoa(char.CreationDate) == searching || char.FirstAlbum == searching) && !utils.Duplicates(artist, char) {
+		if (strings.Contains(strings.ToLower(char.Name), searching)|| strconv.Itoa(char.CreationDate) == searching || strings.Contains(strings.ToLower(char.FirstAlbum), searching)  ) && !utils.Duplicates(artist, char) {
 			artist = append(artist, char)
 			continue
 		}
 		for _, char1 := range char.Members {
-			if char1 == searching && !utils.Duplicates(artist, char) {
+			if strings.Contains(strings.ToLower(char1), searching) && !utils.Duplicates(artist, char) {
 				artist = append(artist, char)
 				continue
 			}
@@ -126,7 +128,7 @@ func Search(rw http.ResponseWriter, r *http.Request) {
 	IDS := []int{}
 	for _, char := range models.Thelocations.Index {
 		for _, char1 := range char.Locations {
-			if char1 == searching  {
+			if strings.Contains(strings.ToLower(char1), searching)  {
 				IDS = append(IDS, char.Id)
 			}
 		}

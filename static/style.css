@@ -1,120 +1,103 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: aliceblue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@font-face {
+  font-family: myFont;
+  src: url("/static/From\ Cartoon\ Blocks.ttf");
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(31, 30, 30);
 }
 
 .everything {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .title {
-    width: 100%;
-    background-color: darkslategray;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title h1 {
+  font-family: myFont;
+  font-size: 50px;
+  padding: 30px;
+  background-size: cover;
+  text-align: center;
+}
+
+.title form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 input[type="text"] {
-    height: 40px;
-    width: 200px;
-    overflow: auto;
+  background: transparent;
+  height: 40px;
+  width: 250px;
+  overflow: auto;
+  border: none;
+  border-bottom: 1px solid rgb(255, 251, 251);
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 .artists {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
 }
 
-.myCard {
-    background-color: transparent;
-    width: 190px;
-    height: 254px;
-    perspective: 1000px;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-  }
-  
-  .innerCard {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-  }
-  
-  .myCard:hover .innerCard {
-    transform: rotateY(180deg);
-  }
-  
-  .frontSide,
-  .backSide {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 1rem;
-    color: white;
-    box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
-    font-weight: 700;
-  }
-  
-  .frontSide,
-  .frontSide::before {
-    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
-  }
-  
-  .backSide,
-  .backSide::before {
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-  }
-  
-  .backSide {
-    transform: rotateY(180deg);
-  }
-  
-  .frontSide::before,
-  .backSide::before {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 110%;
-    height: 110%;
-    position: absolute;
-    z-index: -1;
-    border-radius: 1em;
-    filter: blur(20px);
-    animation: animate 5s linear infinite;
-  }
-  
+.artists .content {
+  padding: 5px;
+  background-color: rgba(71, 68, 68, 0.8);
+}
+
+.content:hover {
+  transform: translateY(-10px);
+  transition: ease-in-out;
+}
+
+.content a p {
+  text-align: right;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#backup {
+  padding: 30px;
+}
