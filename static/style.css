@@ -26,6 +26,9 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .title {
@@ -100,4 +103,38 @@ button:hover {
 
 #backup {
   padding: 30px;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+.searchlink {
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background-color: grey;
+  color: black;
+  padding: 12px;
+  border-radius: 12px;
+}
+.searchlink:hover {
+  transform: translateY(-3px);
+  background-color: rgb(54, 54, 54);
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bottom {
+  background-color: rgb(61, 60, 60);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
 }

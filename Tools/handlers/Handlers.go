@@ -50,12 +50,12 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if erreu != nil {
-		utils.Error404(models.Tm, rw)
+		utils.Error400(models.Tm, rw)
 		return
 	}
 
 	if ID < 1 || ID > 52 {
-		utils.Error404(models.Tm, rw)
+		utils.Error400(models.Tm, rw)
 		return
 	}
 
@@ -67,7 +67,7 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 	jsonfiles, err := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + id)
 
 	if err != nil {
-		utils.Error404(models.Tm, rw)
+		utils.Error500(models.Tm, rw)
 		return
 	}
 
@@ -85,7 +85,7 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 	jsonfiles1, err1 := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + id)
 
 	if err1 != nil {
-		utils.Error404(models.Tm, rw)
+		utils.Error500(models.Tm, rw)
 		return
 	}
 
@@ -97,6 +97,15 @@ func Artistinfos(rw http.ResponseWriter, r *http.Request) {
 
 	if err1 != nil {
 		utils.Error500(models.Tm, rw)
+		return
+	}
+	if len(r.URL.String()) > 19 {
+		utils.Error400(models.Tm, rw)
+		return
+	}
+
+	if strings.HasSuffix(r.URL.String(), "&") {
+		utils.Error400(models.Tm, rw)
 		return
 	}
 

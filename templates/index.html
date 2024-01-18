@@ -14,7 +14,7 @@
         <div class="title" id="up">
             <h1>GROUPIE TRACKER</h1>
             <form action="/search" method="post">
-                <input type="text" list="searching" name="thesearch" placeholder="Search someone">
+                <input type="text" list="searching" name="thesearch" placeholder="Search something">
                 <datalist id="searching">
                     {{range .Art_ists}}
                     <option value="{{.Name}}">{{.Name}} - artist/band</option>
@@ -52,7 +52,12 @@
                 {{end}}
             </div>
         </div>
-        <button id="backup"><a href="#up"><i class="fa-solid fa-arrow-up"></i>Go UP</a></button>
+        <button id="backup"><a href="#up" accesskey="u"><i class="fa-solid fa-arrow-up"></i>Go UP(or press Alt+Shift+U)</a></button>
+        <div class="bottom">
+            <p>For all feedback please contact: senseiZ01@gmail.com</p>
+            <p>Credits: yba, sefaye, adiane</p>
+            <p>Thanks for visiting...:3</p>
+        </div>
     </div>
 </body>
 

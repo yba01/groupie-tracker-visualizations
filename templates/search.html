@@ -7,22 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="title">
-        <h1>GROUPIE TRACKER</h1>
-        <p>RESULTS</p>
-    </div>
-    <div class="containall">
-        <div class="results">
-            {{range .}}
-            <div class="infs">
-                <a href="/artistsinfos?id={{.ID}}"><img src={{.Image}}></a>
-                <p>{{.Name}}</p>
+    <div class="everything">
+        <div class="title">
+            <h1>GROUPIE TRACKER</h1>
+        </div>
+        <h1>Your Search Results :</h1>
+        <div class="all">
+            <div class="artists">
+                {{range .}}
+                <div class="content">
+                    <a href="/artistsinfos?id={{.ID}}"><img src={{.Image}}></a>
+                    <p>{{.Name}}</p>
+                </div>
+                {{end}}
             </div>
-            {{end}}
         </div>
         <a href="/" class="searchlink">
             <p>Go Back Home</p>
         </a>
+        <div class="bottom">
+            <p>For all feedback please contact: senseiZ01@gmail.com</p>
+            <p>Credits: yba, sefaye, adiane</p>
+            <p>Thanks for visiting...:3</p>
+        </div>
     </div>
 </div>
 </body>
