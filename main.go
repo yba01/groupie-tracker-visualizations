@@ -4,9 +4,15 @@ import (
 	"fmt"
 	Handlers "groupie/Tools/handlers"
 	"net/http"
+	"os"
 )
 
 func main() {
+	args := os.Args[1:]
+	if len(args) != 0 {
+		fmt.Println("Usage: go run .")
+		return
+	}
 	http.HandleFunc("/", Handlers.Home)
 	http.HandleFunc("/artistsinfos", Handlers.Artistinfos)
 	http.HandleFunc("/search", Handlers.Search)
