@@ -112,22 +112,6 @@ a {
   border: none;
 }
 
-.searchlink {
-  background: none;
-  border: none;
-  outline: none;
-  text-decoration: none;
-  background-color: grey;
-  color: black;
-  padding: 12px;
-  border-radius: 12px;
-}
-.searchlink:hover {
-  transform: translateY(-3px);
-  background-color: rgb(54, 54, 54);
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
 .bottom {
   background-color: rgb(61, 60, 60);
   height: 300px;

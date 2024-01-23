@@ -7,9 +7,9 @@
 }
 
 body {
-    background: url(https://img.freepik.com/premium-vector/dark-background-with-repetitive-circle-pattern_3442-2002.jpg);
     background-size: contain;
     color: aliceblue;
+    background-color: rgb(31, 30, 30);
 }
 
 .all {
